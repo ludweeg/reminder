@@ -1,0 +1,9 @@
+#include "login.h"
+
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent)
+{
+    this->setGeometry(QRect(400,100,700,400));
+}
+
+MainWindow::~MainWindow() {}

@@ -12,6 +12,7 @@
 #include <QLabel>
 #include "dialogaddtask.h"
 #include "dialogsettime.h"
+#include "dialoglogin.h"
 #include "database.h"
 #include "tablemodel.h"
 #include "popup.h"
@@ -34,6 +35,7 @@ private slots:
     void slotRemoveRecordAT();
     void slotCustomMenuRequestedTT(QPoint pos);
     void slotCustomMenuRequestedAT(QPoint pos);
+    void slotSetUserName(QString);
 
 private:
     QTableView     *taskTable;

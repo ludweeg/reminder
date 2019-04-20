@@ -29,7 +29,7 @@ void DialogSetTime::setupLayout()
 void DialogSetTime::okButtonAccepted()
 {
     emit signalTimeReady(QVariantList() << this->row
-                                        << this->timeLineEdit->text().toInt());
+                                 << this->timeLineEdit->text().toInt());
     this->close();
 }
 

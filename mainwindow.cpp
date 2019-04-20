@@ -6,13 +6,12 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setGeometry(QRect(400,100,700,400));
 
     this->addTaskButton = new QPushButton("Добавить задание");
-    this->taskTable     = new QTableView();
-    this->activeLabel   = new QLabel("Активные");
-    this->activeTable   = new QTableView();
-    this->popUpMessage  = new PopUp();
+    this->taskTable = new QTableView();
+    this->activeLabel= new QLabel("Активные");
+    this->activeTable = new QTableView();
+    this->popUpMessage = new PopUp();
 
     this->setupLayout();
-    this->setWindowTitle("Reminder");
 
     this->db = new DataBase();
     this->db->connectToDataBase();
@@ -32,6 +31,13 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setupTT();
     this->setupAT();
     this->Timers();
+
+    connect(this->addTaskButton, SIGNAL(clicked(bool)), this, SLOT(addTaskButtonClicked()));
+
+    DialogLogin *loginDialog = new DialogLogin();
+    connect(loginDialog, SIGNAL(signalLoginReady(QString)), this, SLOT(slotSetUserName(QString)));
+    loginDialog->exec();
+
     connect(this->addTaskButton, SIGNAL(clicked(bool)), this, SLOT(addTaskButtonClicked()));
 }
 
@@ -275,4 +281,9 @@ void MainWindow::Timers()
             });
         }
     }
+}
+
+void MainWindow::slotSetUserName(QString userName)
+{
+    this->setWindowTitle("Reminder : " + userName);
 }

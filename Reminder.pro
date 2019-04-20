@@ -12,11 +12,13 @@ SOURCES += main.cpp\
     dialogaddtask.cpp \
     tablemodel.cpp \
     popup.cpp \
-    dialogsettime.cpp
+    dialogsettime.cpp \
+    dialoglogin.cpp
 
 HEADERS  += mainwindow.h \
     database.h \
     dialogaddtask.h \
     tablemodel.h \
     popup.h \
-    dialogsettime.h
+    dialogsettime.h \
+    dialoglogin.h
